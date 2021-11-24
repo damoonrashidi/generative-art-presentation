@@ -11,3 +11,4 @@ export * from './NoiseLineFunction';
 export * from './WhatWeWillBuild';
 export * from './FlowField';
 export * from './Forces';
+export * from './ForcesColors';

@@ -33,6 +33,7 @@ function App() {
         <slides.NoiseLineFunction />
         <slides.FlowField />
         <slides.Forces />
+        <slides.ForcesColor />
       </Deck>
     </div>
   );

@@ -16,6 +16,7 @@ export function Examples() {
             'https://i.imgur.com/c65xCfB.jpg',
             'https://i.imgur.com/LffdeTN.jpg',
             'https://i.imgur.com/12YLldt.jpg',
+            'https://i.imgur.com/Gm395iL.png',
           ]}
         >
           {(value) => <img src={value as string} alt="" height="700px" />}

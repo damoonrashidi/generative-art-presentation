@@ -16,7 +16,7 @@ export function FlowField() {
       <div className="center column mid">
         <CodePane
           language="typescript"
-          showLineNumbers={true}
+          showLineNumbers={false}
           highlightRanges={[2, [3, 4], 8, [15, 17]]}
         >
           {`
