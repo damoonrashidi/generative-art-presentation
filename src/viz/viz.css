@@ -1,0 +1,12 @@
+canvas {
+  background-color: #eee;
+  border-radius: 8px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0px 94px 80px rgba(0, 0, 0, 0.07),
+   0px 56.1108px 56.9458px rgba(0, 0, 0, 0.0647758),
+   0px 31.276px 34.5813px rgba(0, 0, 0, 0.0578032),
+   0px 16.9773px 19.2724px rgba(0, 0, 0, 0.0493055),
+   0px 8.35891px 9.27309px rgba(0, 0, 0, 0.0389036),
+   0px 3.08757px 3.15821px rgba(0, 0, 0, 0.0253027);
+}

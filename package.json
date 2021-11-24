@@ -10,9 +10,13 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "highlightjs": "^9.16.2",
+    "open-simplex-noise": "^2.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-syntax-highlighter": "^15.4.5",
+    "robust-point-in-polygon": "^1.0.3",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
@@ -39,5 +43,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^13.5.2",
+    "@types/robust-point-in-polygon": "^1.0.1",
+    "@types/spectacle": "^5.2.3",
+    "prettier": "^2.4.1"
   }
 }

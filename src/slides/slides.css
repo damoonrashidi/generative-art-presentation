@@ -1,0 +1,54 @@
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column > * {
+  width: 50%;
+}
+
+.mid {
+  height: 100vh;
+}
+
+.stack {
+  flex-direction: column;
+}
+
+.highlight {
+  background-color: #111;
+  color: #fff;
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-family: "Source Code Pro";
+}
+
+.big {
+  font-size: 2em;
+  margin: 24px;
+}
+
+button {
+  background: #eee;
+  border: none;
+  font-size: 2em;
+  font-family: "Source Code Pro";
+  padding: 8px 24px;
+  cursor: pointer;
+}
+button:hover {
+  background: #ddd;
+}
+
+pre {
+  max-width: 90%;
+}
