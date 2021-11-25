@@ -37,7 +37,7 @@ export function FlowFieldViz(props: Prop) {
         lib.randomHue([0, 100], 100, lib.randomInt(30, 40))
       );
 
-      if (props.lineCount === 1) {
+      if (i === 1) {
         x = width / 2;
         y = height / 2;
       }

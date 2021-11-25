@@ -22,7 +22,7 @@ export function ForcesViz(props: Prop) {
       return;
     }
 
-    const [width, height] = [1600, 1600];
+    const [width, height] = [1200, 1200];
 
     const context = canvas.current.getContext('2d')!;
 
@@ -37,7 +37,7 @@ export function ForcesViz(props: Prop) {
       let x = lib.randomFloat(0, width);
       let y = lib.randomFloat(0, height);
 
-      if (props.lineCount === 1) {
+      if (i === 1) {
         x = width / 2;
         y = height / 2;
       }
@@ -69,7 +69,7 @@ export function ForcesViz(props: Prop) {
 
         if (
           props.enableCollisionDetection &&
-          lib.isInsideAnyParticle(particle, quad, 20)
+          lib.isInsideAnyParticle(particle, quad, 10)
         ) {
           break;
         }
@@ -90,5 +90,5 @@ export function ForcesViz(props: Prop) {
     }
   });
 
-  return <canvas ref={canvas} width="1600px" height="1600px"></canvas>;
+  return <canvas ref={canvas} width="1200px" height="1200px"></canvas>;
 }

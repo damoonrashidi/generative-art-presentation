@@ -12,3 +12,4 @@ export * from './WhatWeWillBuild';
 export * from './FlowField';
 export * from './Forces';
 export * from './ForcesColors';
+export * from './Variations';

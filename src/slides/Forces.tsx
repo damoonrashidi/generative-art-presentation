@@ -17,14 +17,14 @@ export function Forces() {
         <CodePane
           language="typescript"
           showLineNumbers={false}
-          highlightRanges={[1, 5, [12, 15], [17, 20], 22]}
+          highlightRanges={[1, 4, 5, [6, 10], [12, 15], [17, 20], 22]}
         >
           {`
           const previouslyDrawnCircles: lib.Cirlce[] = [];
           for (let i = 0; i < props.lineCount; i++) {
             // set up x and y coordinates
             const line: lib.Circle[] = [];
-            while ( isInisde && !randomlyEndLine ) {
+            while ( isInsideCanvas && !randomlyEndLine ) {
               const particle: lib.Circle = {
                 centerX: x,
                 centerY: y,

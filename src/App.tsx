@@ -34,6 +34,7 @@ function App() {
         <slides.FlowField />
         <slides.Forces />
         <slides.ForcesColor />
+        <slides.Variations />
       </Deck>
     </div>
   );

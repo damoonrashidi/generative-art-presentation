@@ -7,14 +7,19 @@ export interface Colors {
   palette: lib.HSLA[];
 }
 
+export enum ColorMethod {
+  FROM_PALETTE = 'FROM_PALETTE',
+  BY_REGION = 'BY_REGION',
+}
+
 interface Prop {
   colors: Colors;
   seed: number;
+  colorMethod: ColorMethod;
 }
 
 export function ForcesColorViz(props: Prop) {
   const canvas = useRef<HTMLCanvasElement>(null);
-
   const smoothness = 1000;
   const turbulence = 4;
   const quadCount = 100;
@@ -25,6 +30,20 @@ export function ForcesColorViz(props: Prop) {
     }
 
     const [width, height] = [1600, 1600];
+
+    const regions: lib.Shape[] = [
+      lib.createShape([0, 0], width / 2, 10),
+      lib.createShape([width, 0], width / 2, 10),
+      lib.createShape([0, height], width / 2, 10),
+      lib.createShape([width, height], width / 2, 10),
+    ];
+
+    const regionColors: lib.HSLA[] = [
+      props.colors.palette[0],
+      props.colors.palette[1],
+      props.colors.palette[2],
+      props.colors.palette[3],
+    ];
 
     const context = canvas.current.getContext('2d')!;
 
@@ -41,7 +60,19 @@ export function ForcesColorViz(props: Prop) {
 
       const r = 5;
 
-      context.fillStyle = lib.hsla(lib.fromPalette(props.colors.palette));
+      if (props.colorMethod === ColorMethod.FROM_PALETTE) {
+        context.fillStyle = lib.hsla(lib.fromPalette(props.colors.palette));
+      } else if (props.colorMethod === ColorMethod.BY_REGION) {
+        const region = regions.findIndex((region) =>
+          lib.isInsidePolygon([x, y], region)
+        );
+
+        if (region === -1) {
+          context.fillStyle = lib.hsla(props.colors.palette[5]);
+        } else {
+          context.fillStyle = lib.hsla(regionColors[region]);
+        }
+      }
 
       while (
         lib.isInsideRectangle([x, y], [100, 100, width - 100, height - 100]) &&

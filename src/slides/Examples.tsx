@@ -11,6 +11,7 @@ export function Examples() {
           values={[
             'https://i.imgur.com/Ez1UEWU.jpg',
             'https://i.imgur.com/uLuvtCy.jpg',
+            'https://i.imgur.com/sBLFCgt.png',
             'https://i.imgur.com/AmbyOEk.jpg',
             'https://i.imgur.com/tLBq5l6.jpg',
             'https://i.imgur.com/c65xCfB.jpg',
