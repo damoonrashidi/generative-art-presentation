@@ -20,14 +20,15 @@ interface Prop {
 
 export function ForcesColorViz(props: Prop) {
   const canvas = useRef<HTMLCanvasElement>(null);
-  const smoothness = 1000;
-  const turbulence = 4;
   const quadCount = 100;
 
   useEffect(() => {
     if (!canvas.current) {
       return;
     }
+    const turbulence = lib.randomFloat(0.5, 3.4);
+    const smoothness = lib.randomInt(400, 1e3);
+    const distance = lib.fromPalette([7, 13]);
 
     const [width, height] = [1600, 1600];
 
@@ -52,7 +53,7 @@ export function ForcesColorViz(props: Prop) {
     context.fillStyle = lib.hsla(props.colors.background);
     context.fillRect(0, 0, width, height);
 
-    for (let i = 0; i < 1200; i++) {
+    for (let i = 0; i < 1400; i++) {
       let x = lib.randomFloat(0, width);
       let y = lib.randomFloat(0, height);
 
@@ -104,8 +105,8 @@ export function ForcesColorViz(props: Prop) {
         context.fill();
         line.push(particle);
 
-        x += Math.cos(n * turbulence) * 8 * Math.sqrt(r);
-        y += Math.sin(n * turbulence) * 8 * Math.sqrt(r);
+        x += Math.cos(n * turbulence) * distance;
+        y += Math.sin(n * turbulence) * distance;
       }
 
       for (let cirlce of line) {

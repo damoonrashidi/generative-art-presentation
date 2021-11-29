@@ -8,14 +8,14 @@ export function WhatIsGenerativeArt() {
         <div className="center column">
           <CodePane language="typescript" showLineNumbers={false}>
             {`
-          const x = Math.random() * Math.PI % canvas.width
-          const y = Math.atan2(x) * HALF_PI % canvas.height
+          const x = randomInt(0, canvas.width);
+          const y = x % canvas.height;
 
           canvas.fillRect(x, y, 100, 100);
           `}
           </CodePane>
           <h2>
-            <span className="highlight">&gt;</span> ART.
+            <span className="highlight">=</span> ART.
           </h2>
         </div>
       </div>

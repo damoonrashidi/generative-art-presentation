@@ -35,6 +35,7 @@ function App() {
         <slides.Forces />
         <slides.ForcesColor />
         <slides.Variations />
+        <slides.ClosingNotes />
       </Deck>
     </div>
   );

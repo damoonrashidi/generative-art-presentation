@@ -6,8 +6,7 @@ import './slides.css';
 export function Forces() {
   const [seed, setSeed] = useState(0);
   const [lineCount, setLineCount] = useState(1);
-  const [stepSize, setStepSize] = useState(1);
-  const [allowRandomRadius, setAllowRandomRadius] = useState(false);
+  const [stepSize, setStepSize] = useState(21);
   const [enableCollisionDetection, setEnableCollisionDetection] =
     useState(false);
 
@@ -17,20 +16,15 @@ export function Forces() {
         <CodePane
           language="typescript"
           showLineNumbers={false}
-          highlightRanges={[1, 4, 5, [6, 10], [12, 15], [17, 20], 22]}
+          highlightRanges={[4, 5, [6], [12, 15], 17, [7, 10]]}
         >
           {`
           const previouslyDrawnCircles: lib.Cirlce[] = [];
-          for (let i = 0; i < props.lineCount; i++) {
+          for (let i = 0; i < ${lineCount}; i++) {
             // set up x and y coordinates
             const line: lib.Circle[] = [];
             while ( isInsideCanvas && !randomlyEndLine ) {
-              const particle: lib.Circle = {
-                centerX: x,
-                centerY: y,
-                radius: r,
-              };
-            
+              const particle: lib.Circle = { x, y, radius };
               if (
                 collisionDetection &&
                 lib.collides(particle, previouslyDrawnLines)
@@ -50,7 +44,6 @@ export function Forces() {
             seed={seed}
             lineCount={lineCount}
             stepSize={stepSize}
-            allowRandomRadius={allowRandomRadius}
             enableCollisionDetection={enableCollisionDetection}
           />
           <div className="center stack">
@@ -78,14 +71,6 @@ export function Forces() {
                 step="1"
                 value={stepSize}
                 onChange={(e) => setStepSize(parseInt(e.target.value))}
-              />
-            </div>
-            <div>
-              Allow Random Radius:
-              <input
-                type="checkbox"
-                checked={allowRandomRadius}
-                onChange={(e) => setAllowRandomRadius(e.target.checked)}
               />
             </div>
 

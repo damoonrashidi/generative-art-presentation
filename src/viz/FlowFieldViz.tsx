@@ -9,7 +9,12 @@ interface Prop {
   lineCount: number;
   stepSize: number;
   lineWidth: number;
+  showAnchors: boolean;
 }
+
+const positions = Array(1000)
+  .fill(false)
+  .map(() => [lib.randomFloat(0, 800), lib.randomFloat(0, 800)]);
 
 export function FlowFieldViz(props: Prop) {
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -26,18 +31,15 @@ export function FlowFieldViz(props: Prop) {
     context.fillStyle = '#eee';
     context.fillRect(0, 0, width, height);
 
-    context.strokeStyle = '#000';
     context.lineWidth = props.lineWidth;
     context.lineCap = 'round';
+    context.strokeStyle = lib.hsla([0, 0, 0]);
+    context.fillStyle = lib.hsla([0, 50, 50]);
 
     for (let i = 0; i < props.lineCount; i++) {
-      let x = lib.randomFloat(0, width);
-      let y = lib.randomFloat(0, height);
-      context.strokeStyle = lib.hsla(
-        lib.randomHue([0, 100], 100, lib.randomInt(30, 40))
-      );
+      let [x, y] = positions[i];
 
-      if (i === 1) {
+      if (i === 0) {
         x = width / 2;
         y = height / 2;
       }
@@ -50,6 +52,10 @@ export function FlowFieldViz(props: Prop) {
           y / props.smoothness,
           props.seed
         );
+
+        if (props.showAnchors) {
+          context.fillRect(x - 10, y - 10, 20, 20);
+        }
 
         x += Math.sin(n * props.turbulence) * props.stepSize;
         y += Math.cos(n * props.turbulence) * props.stepSize;

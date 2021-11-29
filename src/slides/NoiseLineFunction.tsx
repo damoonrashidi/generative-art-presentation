@@ -25,17 +25,23 @@ export function NoiseLineFunction() {
                 /**
                  * For the two points 
                  * [120, 190] and [125, 195]
-                 * 
-                 * [${(120 / smoothness).toPrecision(4)}, ${(
+                 * Distance: ${lib
+                   .distance(
+                     [120 / smoothness, 190 / smoothness],
+                     [125 / smoothness, 195 / smoothness]
+                   )
+                   .toFixed(4)} points
+                 *
+                 * noise(${(120 / smoothness).toPrecision(4)}, ${(
             190 / smoothness
-          ).toPrecision(4)}] = ${lib.Noise.simplex(
+          ).toPrecision(4)}) = ${lib.Noise.simplex(
             120 / smoothness,
             190 / smoothness,
             seed
           ).toPrecision(4)}
-                 * [${(125 / smoothness).toPrecision(4)}, ${(
+                 * noise(${(125 / smoothness).toPrecision(4)}, ${(
             195 / smoothness
-          ).toPrecision(4)}] = ${lib.Noise.simplex(
+          ).toPrecision(4)}) = ${lib.Noise.simplex(
             125 / smoothness,
             195 / smoothness,
             seed

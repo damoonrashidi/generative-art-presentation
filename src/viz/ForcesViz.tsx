@@ -6,9 +6,12 @@ interface Prop {
   seed: number;
   lineCount: number;
   stepSize: number;
-  allowRandomRadius: boolean;
   enableCollisionDetection: boolean;
 }
+
+const positions = Array(2000)
+  .fill(false)
+  .map(() => [lib.randomFloat(0, 1200), lib.randomFloat(0, 1200)]);
 
 export function ForcesViz(props: Prop) {
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -25,8 +28,8 @@ export function ForcesViz(props: Prop) {
     const [width, height] = [1200, 1200];
 
     const context = canvas.current.getContext('2d')!;
-
     const quads = lib.buildQuadMap(quadCount);
+    const r = 5;
 
     context.fillStyle = '#eee';
     context.fillRect(0, 0, width, height);
@@ -34,17 +37,14 @@ export function ForcesViz(props: Prop) {
     context.fillStyle = '#000';
 
     for (let i = 0; i < props.lineCount; i++) {
-      let x = lib.randomFloat(0, width);
-      let y = lib.randomFloat(0, height);
+      let [x, y] = positions[i];
 
-      if (i === 1) {
+      if (i === 0) {
         x = width / 2;
         y = height / 2;
       }
 
       const line: lib.Circle[] = [];
-
-      const r = props.allowRandomRadius ? lib.randomFloat(4, 10) : 5;
 
       while (
         lib.isInsideRectangle([x, y], [100, 100, width - 100, height - 100]) &&

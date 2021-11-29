@@ -5,11 +5,12 @@ import './slides.css';
 
 export function FlowField() {
   const [seed, setSeed] = useState(0);
-  const [smoothness, setSmoothness] = useState(1);
-  const [turbulance, setTurbulance] = useState(1);
+  const [smoothness, setSmoothness] = useState(600);
+  const [turbulance, setTurbulance] = useState(3.8);
   const [lineCount, setLineCount] = useState(1);
-  const [stepSize, setStepSize] = useState(10);
-  const [lineWidth, setLineWidth] = useState(1);
+  const [stepSize, setStepSize] = useState(160);
+  const [lineWidth, setLineWidth] = useState(7);
+  const [showAnchors, setShowAnchors] = useState(true);
 
   return (
     <Slide backgroundColor="#fff">
@@ -17,7 +18,7 @@ export function FlowField() {
         <CodePane
           language="typescript"
           showLineNumbers={false}
-          highlightRanges={[2, [3, 4], 8, [15, 17]]}
+          highlightRanges={[2, [3, 4], 8, [9, 13], [15, 17]]}
         >
           {`
 
@@ -51,6 +52,7 @@ export function FlowField() {
             lineCount={lineCount}
             stepSize={stepSize}
             lineWidth={lineWidth}
+            showAnchors={showAnchors}
           />
           <div className="center stack">
             <span className="highlight big">Seed: {seed}</span>
@@ -84,8 +86,8 @@ export function FlowField() {
               <input
                 type="range"
                 min="1"
-                max="1000"
-                step="10"
+                max="500"
+                step="1"
                 value={lineCount}
                 onChange={(e) => setLineCount(parseInt(e.target.value))}
               />
@@ -110,6 +112,15 @@ export function FlowField() {
                 step="10"
                 value={stepSize}
                 onChange={(e) => setStepSize(parseInt(e.target.value))}
+              />
+            </div>
+
+            <div>
+              Show anchors:
+              <input
+                type="checkbox"
+                checked={showAnchors}
+                onChange={(e) => setShowAnchors(e.target.checked)}
               />
             </div>
           </div>

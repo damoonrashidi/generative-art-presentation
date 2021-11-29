@@ -79,9 +79,9 @@ const coloredRegions = colorRegions(
 );
 
 for (let i = 0; i < lines.length; i++) {
-  if (colorMethod === ColorMethod.FROM_PALETTE) {
+  if (colorByLine) {
     context.fillStyle = lib.fromPalette(colors.palette);
-  } else if (colorMethod === ColorMethod.BY_REGION) {
+  } else if (colorByRegion) {
     const region = findRegion(x,y, regions);
     context.fillStyle = coloredRegions.color;
   }
@@ -95,8 +95,19 @@ for (let i = 0; i < lines.length; i++) {
             colorMethod={colorMethod}
           />
           <div className="center stack">
-            <button onClick={() => setSeed(lib.randomInt(0, 100))}>
-              Seed: {seed}
+            <button
+              onClick={() => {
+                setSeed(lib.randomInt(0, 100));
+                setColors(lib.fromPalette([day, night, autumn]));
+                setColorMethod(
+                  lib.fromPalette([
+                    ColorMethod.FROM_PALETTE,
+                    ColorMethod.BY_REGION,
+                  ])
+                );
+              }}
+            >
+              Shuffle
             </button>
 
             <div className="center column">
@@ -119,13 +130,13 @@ for (let i = 0; i < lines.length; i++) {
             </div>
 
             <div className="center column">
-              Color method:{' '}
+              Method:{' '}
               <select
                 onChange={(e) => {
                   setColorMethod(e.target.value as ColorMethod);
                 }}
               >
-                <option value={ColorMethod.FROM_PALETTE}>Random</option>
+                <option value={ColorMethod.FROM_PALETTE}>By Line</option>
                 <option value={ColorMethod.BY_REGION}>By Region</option>
               </select>
             </div>

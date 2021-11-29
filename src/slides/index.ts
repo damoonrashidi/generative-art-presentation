@@ -13,3 +13,4 @@ export * from './FlowField';
 export * from './Forces';
 export * from './ForcesColors';
 export * from './Variations';
+export * from './ClosingNotes';
