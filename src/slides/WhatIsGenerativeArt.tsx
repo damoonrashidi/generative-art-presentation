@@ -9,7 +9,7 @@ export function WhatIsGenerativeArt() {
           <CodePane language="typescript" showLineNumbers={false}>
             {`
           const x = randomInt(0, canvas.width);
-          const y = x % canvas.height;
+          const y = randomInt(0, canvas.height);
 
           canvas.fillRect(x, y, 100, 100);
           `}

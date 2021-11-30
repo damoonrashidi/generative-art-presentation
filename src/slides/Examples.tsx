@@ -7,10 +7,10 @@ export function Examples() {
       <div className="center">
         <Stepper
           tagName="a"
-          alwaysVisible
+          alwaysVisible={true}
           values={[
-            'https://i.imgur.com/Ez1UEWU.jpg',
             'https://i.imgur.com/uLuvtCy.jpg',
+            'https://i.imgur.com/Ez1UEWU.jpg',
             'https://i.imgur.com/sBLFCgt.png',
             'https://i.imgur.com/AmbyOEk.jpg',
             'https://i.imgur.com/tLBq5l6.jpg',
@@ -20,7 +20,13 @@ export function Examples() {
             'https://i.imgur.com/Gm395iL.png',
           ]}
         >
-          {(value) => <img src={value as string} alt="" height="700px" />}
+          {(value, i) =>
+            i === -1 ? (
+              <h1>Examples</h1>
+            ) : (
+              <img src={value as string} alt="" height="700px" />
+            )
+          }
         </Stepper>
       </div>
     </Slide>

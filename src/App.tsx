@@ -26,7 +26,6 @@ function App() {
         <slides.Frameworks />
         <slides.PutAPixelOnTheScreen />
         <slides.WhyGenerativeArt />
-        <slides.Examples />
         <slides.PracticalExample />
         <slides.WhatWeWillBuild />
         <slides.NoiseFunction />
@@ -35,6 +34,7 @@ function App() {
         <slides.Forces />
         <slides.ForcesColor />
         <slides.Variations />
+        <slides.Examples />
         <slides.ClosingNotes />
       </Deck>
     </div>
