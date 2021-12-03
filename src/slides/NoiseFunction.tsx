@@ -9,7 +9,7 @@ export function NoiseFunction() {
   return (
     <Slide backgroundColor="#fff">
       <div className="center stack">
-        <h1>Noise Functions</h1>
+        <h3>Noise Functions</h3>
         <div className="center column">
           <div className="stack">
             <CodePane language="typescript" showLineNumbers={false}>
@@ -18,19 +18,18 @@ export function NoiseFunction() {
             const n = noise2d(x, y, seed)
             `}
             </CodePane>
-            <div>
-              <p>
-                <span className="highlight">n</span> is a value between -1 and 1
-              </p>
-            </div>
           </div>
           <div className="center stack">
             <NoiseNumberViz seed={seed}></NoiseNumberViz>
-            <div>
-              <span className="highlight big">Seed: {seed}</span>
-              <button onClick={() => setSeed(Math.floor(Math.random() * 100))}>
-                New Seed
-              </button>
+            <div className="center stack form">
+              <div>
+                <button
+                  onClick={() => setSeed(Math.floor(Math.random() * 100))}
+                >
+                  New Seed
+                </button>
+                <span className="highlight">Seed: {seed}</span>
+              </div>
             </div>
           </div>
         </div>

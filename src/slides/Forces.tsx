@@ -15,23 +15,23 @@ export function Forces() {
       <div className="center column mid">
         <CodePane
           language="typescript"
-          showLineNumbers={false}
-          highlightRanges={[4, 5, [6], [12, 15], 17, [7, 10]]}
+          showLineNumbers={true}
+          highlightRanges={[2, 4, 5, 6, 12, 13, 17, [7, 10]]}
         >
           {`
           const previouslyDrawnCircles: lib.Cirlce[] = [];
           for (let i = 0; i < ${lineCount}; i++) {
             // set up x and y coordinates
             const line: lib.Circle[] = [];
-            while ( isInsideCanvas && !randomlyEndLine ) {
-              const particle: lib.Circle = { x, y, radius };
+            while ( isInsideCanvas ) {
+              const circle: lib.Circle = { x, y, radius };
               if (
                 collisionDetection &&
-                lib.collides(particle, previouslyDrawnLines)
+                lib.collides(circle, previouslyDrawnLines)
               ) { break; }
               
-              drawCircle();
-              line.push(particle);
+              drawCircle(circle);
+              line.push(circle);
               x += Math.cos(n * 4.4) * ${stepSize} * Math.sqrt(r);
               y += Math.sin(n * 4.4) * ${stepSize} * Math.sqrt(r);
             }
@@ -46,13 +46,15 @@ export function Forces() {
             stepSize={stepSize}
             enableCollisionDetection={enableCollisionDetection}
           />
-          <div className="center stack">
-            <span className="highlight big">Seed: {seed}</span>
-            <button onClick={() => setSeed(Math.floor(Math.random() * 100))}>
-              New Seed
-            </button>
+          <div className="center stack form">
             <div>
-              Lines:
+              <button onClick={() => setSeed(Math.floor(Math.random() * 100))}>
+                New Seed
+              </button>
+              <span className="highlight">Seed: {seed}</span>
+            </div>
+            <div>
+              <span>Lines</span>
               <input
                 type="range"
                 min="1"
@@ -63,7 +65,7 @@ export function Forces() {
               />
             </div>
             <div>
-              Step size:
+              <span>Step size</span>
               <input
                 type="range"
                 min="2"
@@ -75,7 +77,7 @@ export function Forces() {
             </div>
 
             <div>
-              Collision detection:
+              <span>Check collisions</span>
               <input
                 type="checkbox"
                 checked={enableCollisionDetection}

@@ -6,7 +6,7 @@ export function PracticalExample() {
     <Slide backgroundColor="#fff">
       <div className="center mid stack">
         <h1>A Practical Example</h1>
-        <h5>Code ahead</h5>
+        <h4>Code ahead</h4>
       </div>
     </Slide>
   );

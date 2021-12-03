@@ -40,7 +40,7 @@
 button {
   background: #eee;
   border: none;
-  font-size: 2em;
+  font-size: 1em;
   font-family: "Source Code Pro";
   padding: 8px 24px;
   cursor: pointer;
@@ -51,4 +51,21 @@ button:hover {
 
 pre {
   max-width: 90%;
+}
+
+.form {
+  margin: 32px 0;
+}
+
+.form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form > div > span {
+  text-align: start;
+  display: inline-block;
 }

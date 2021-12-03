@@ -65,13 +65,15 @@ export function NoiseLineFunction() {
             smoothness={smoothness}
             turbulence={turbulance}
           ></NoiseLineViz>
-          <div className="center stack">
-            <span className="highlight big">Seed: {seed}</span>
-            <button onClick={() => setSeed(Math.floor(Math.random() * 100))}>
-              New Seed
-            </button>
+          <div className="center stack form">
             <div>
-              Smoothness:
+              <button onClick={() => setSeed(Math.floor(Math.random() * 100))}>
+                New Seed
+              </button>
+              <span className="highlight">Seed: {seed}</span>
+            </div>
+            <div>
+              <span>Smoothness</span>
               <input
                 type="range"
                 min="1"
@@ -82,7 +84,7 @@ export function NoiseLineFunction() {
               />
             </div>
             <div>
-              Turbulence:
+              <span>Turbulence</span>
               <input
                 type="range"
                 min="0"

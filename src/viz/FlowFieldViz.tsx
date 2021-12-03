@@ -37,6 +37,7 @@ export function FlowFieldViz(props: Prop) {
     context.fillStyle = lib.hsla([0, 50, 50]);
 
     for (let i = 0; i < props.lineCount; i++) {
+      let distance = 0;
       let [x, y] = positions[i];
 
       if (i === 0) {
@@ -46,7 +47,10 @@ export function FlowFieldViz(props: Prop) {
 
       context.beginPath();
       context.moveTo(x, y);
-      while (lib.isInsideRectangle([x, y], [0, 0, width, height])) {
+      while (
+        lib.isInsideRectangle([x, y], [0, 0, width, height]) &&
+        distance < 1000
+      ) {
         const n = lib.Noise.simplex(
           x / props.smoothness,
           y / props.smoothness,
@@ -59,6 +63,8 @@ export function FlowFieldViz(props: Prop) {
 
         x += Math.sin(n * props.turbulence) * props.stepSize;
         y += Math.cos(n * props.turbulence) * props.stepSize;
+
+        distance += props.stepSize;
         context.lineTo(x, y);
       }
       context.stroke();

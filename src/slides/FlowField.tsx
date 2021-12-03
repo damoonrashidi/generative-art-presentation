@@ -54,13 +54,15 @@ export function FlowField() {
             lineWidth={lineWidth}
             showAnchors={showAnchors}
           />
-          <div className="center stack">
-            <span className="highlight big">Seed: {seed}</span>
-            <button onClick={() => setSeed(Math.floor(Math.random() * 100))}>
-              New Seed
-            </button>
+          <div className="center stack form">
             <div>
-              Smoothness:
+              <button onClick={() => setSeed(Math.floor(Math.random() * 100))}>
+                New Seed
+              </button>
+              <span className="highlight">Seed: {seed}</span>
+            </div>
+            <div>
+              <span>Smoothness</span>
               <input
                 type="range"
                 min="0"
@@ -71,7 +73,7 @@ export function FlowField() {
               />
             </div>
             <div>
-              Turbulence:
+              <span>Turbulence</span>
               <input
                 type="range"
                 min="0"
@@ -82,7 +84,7 @@ export function FlowField() {
               />
             </div>
             <div>
-              Lines:
+              <span>Lines</span>
               <input
                 type="range"
                 min="1"
@@ -93,7 +95,7 @@ export function FlowField() {
               />
             </div>
             <div>
-              Line width:
+              <span>Line width</span>
               <input
                 type="range"
                 min="1"
@@ -104,7 +106,7 @@ export function FlowField() {
               />
             </div>
             <div>
-              Step size:
+              <span>Step size</span>
               <input
                 type="range"
                 min="10"
@@ -116,7 +118,7 @@ export function FlowField() {
             </div>
 
             <div>
-              Show anchors:
+              <span>Show anchors</span>
               <input
                 type="checkbox"
                 checked={showAnchors}

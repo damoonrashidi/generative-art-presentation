@@ -57,9 +57,9 @@ export function ForcesColor() {
           highlightRanges={[
             [1, 4],
             [16, 18],
-            [19, 21],
             [5, 9],
             [12, 14],
+            [19, 21],
           ]}
         >
           {`
@@ -68,10 +68,10 @@ const colors = {
   palette: [${colors.palette.slice(0, 2).map((c) => `'hsla(${c})'`)}, ...],
 };
 const regions: lib.Shape[] = [
-  lib.createShape([0, 0], width / 2),
-  lib.createShape([width, 0], width / 2),
-  lib.createShape([0, height], width / 2),
-  lib.createShape([width, height], width / 2),
+  canvas.topLeft,
+  canvas.topRight,
+  canvas.bottomLeft,
+  canvas.bottomRight,
 ];
 
 const coloredRegions = colorRegions(
@@ -94,7 +94,7 @@ for (let i = 0; i < lines.length; i++) {
             seed={seed}
             colorMethod={colorMethod}
           />
-          <div className="center stack">
+          <div className="center stack form">
             <button
               onClick={() => {
                 setSeed(lib.randomInt(0, 100));
@@ -107,11 +107,11 @@ for (let i = 0; i < lines.length; i++) {
                 );
               }}
             >
-              Shuffle
+              Make Art
             </button>
 
             <div className="center column">
-              Palette:
+              <span>Palette</span>
               <select
                 onChange={(e) => {
                   const map: Record<string, Colors> = {
@@ -130,7 +130,7 @@ for (let i = 0; i < lines.length; i++) {
             </div>
 
             <div className="center column">
-              Method:{' '}
+              Method
               <select
                 onChange={(e) => {
                   setColorMethod(e.target.value as ColorMethod);
