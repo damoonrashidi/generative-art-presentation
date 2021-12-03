@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/generative-art-presentation/static/css/main.e0bca3cc.chunk.css",
+    "main.js": "/generative-art-presentation/static/js/main.153635bc.chunk.js",
+    "main.js.map": "/generative-art-presentation/static/js/main.153635bc.chunk.js.map",
+    "runtime-main.js": "/generative-art-presentation/static/js/runtime-main.254a308c.js",
+    "runtime-main.js.map": "/generative-art-presentation/static/js/runtime-main.254a308c.js.map",
+    "static/js/2.feb0c8af.chunk.js": "/generative-art-presentation/static/js/2.feb0c8af.chunk.js",
+    "static/js/2.feb0c8af.chunk.js.map": "/generative-art-presentation/static/js/2.feb0c8af.chunk.js.map",
+    "static/js/3.78177b86.chunk.js": "/generative-art-presentation/static/js/3.78177b86.chunk.js",
+    "static/js/3.78177b86.chunk.js.map": "/generative-art-presentation/static/js/3.78177b86.chunk.js.map",
+    "index.html": "/generative-art-presentation/index.html",
+    "static/css/main.e0bca3cc.chunk.css.map": "/generative-art-presentation/static/css/main.e0bca3cc.chunk.css.map",
+    "static/js/2.feb0c8af.chunk.js.LICENSE.txt": "/generative-art-presentation/static/js/2.feb0c8af.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.254a308c.js",
+    "static/js/2.feb0c8af.chunk.js",
+    "static/css/main.e0bca3cc.chunk.css",
+    "static/js/main.153635bc.chunk.js"
+  ]
+}
