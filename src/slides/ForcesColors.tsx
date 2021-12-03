@@ -6,6 +6,11 @@ import './slides.css';
 import * as lib from '../lib';
 
 export function ForcesColor() {
+  const white: Colors = {
+    background: [48, 20, 9],
+    palette: [[0, 100, 100]],
+  };
+
   const autumn: Colors = {
     background: [48, 20, 9],
     palette: [
@@ -42,7 +47,7 @@ export function ForcesColor() {
     ],
   };
 
-  const [colors, setColors] = useState<Colors>(autumn);
+  const [colors, setColors] = useState<Colors>(white);
   const [seed, setSeed] = useState(100);
   const [colorMethod, setColorMethod] = useState<ColorMethod>(
     ColorMethod.FROM_PALETTE
@@ -115,6 +120,7 @@ for (let i = 0; i < lines.length; i++) {
               <select
                 onChange={(e) => {
                   const map: Record<string, Colors> = {
+                    white,
                     autumn,
                     night,
                     day,
@@ -123,6 +129,7 @@ for (let i = 0; i < lines.length; i++) {
                   setColors(map[e.target.value]);
                 }}
               >
+                <option value="whitwe">White</option>
                 <option value="autumn">Autumn</option>
                 <option value="night">Night</option>
                 <option value="day">Day</option>

@@ -20,7 +20,9 @@ export function NoiseLineFunction() {
           {`
             for (let x = 0; x < width; x += width / 20) {
               for (let y = 0; y < height; y += height / 20) {
-                const n = lib.Noise.simplex(x / ${smoothness}, y / ${smoothness}, ${seed});
+                const n = noise(x${
+                  smoothness === 1 ? '' : ' / ' + smoothness
+                }, y${smoothness === 1 ? '' : ' / ' + smoothness}, ${seed});
 
                 /**
                  * For the two points 
@@ -51,8 +53,12 @@ export function NoiseLineFunction() {
                 context.beginPath();
                 context.moveTo(x, y);
                 context.lineTo(
-                  x + Math.cos(n * ${turbulance}) * lineLength,
-                  y + Math.sin(n * ${turbulance}) * lineLength
+                  x + Math.cos(n${
+                    turbulance === 1 ? '' : ' * ' + turbulance
+                  }) * lineLength,
+                  y + Math.sin(n${
+                    turbulance === 1 ? '' : ' * ' + turbulance
+                  }) * lineLength
                 );
                 context.stroke();
               }

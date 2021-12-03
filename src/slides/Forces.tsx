@@ -15,7 +15,7 @@ export function Forces() {
       <div className="center column mid">
         <CodePane
           language="typescript"
-          showLineNumbers={true}
+          showLineNumbers={false}
           highlightRanges={[2, 4, 5, 6, 12, 13, 17, [7, 10]]}
         >
           {`

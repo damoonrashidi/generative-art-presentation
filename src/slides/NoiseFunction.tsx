@@ -15,7 +15,7 @@ export function NoiseFunction() {
             <CodePane language="typescript" showLineNumbers={false}>
               {`
             const seed = random();
-            const n = noise2d(x, y, seed)
+            const n = noise(x, y, seed)
             `}
             </CodePane>
           </div>

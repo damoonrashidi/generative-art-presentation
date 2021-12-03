@@ -5,8 +5,8 @@ import './slides.css';
 
 export function FlowField() {
   const [seed, setSeed] = useState(0);
-  const [smoothness, setSmoothness] = useState(600);
-  const [turbulance, setTurbulance] = useState(3.8);
+  const [smoothness, setSmoothness] = useState(430);
+  const [turbulance, setTurbulance] = useState(4.6);
   const [lineCount, setLineCount] = useState(1);
   const [stepSize, setStepSize] = useState(160);
   const [lineWidth, setLineWidth] = useState(7);
@@ -30,7 +30,7 @@ export function FlowField() {
               context.beginPath();
               context.moveTo(x, y);
               while (isInBounds(x, y)) {
-                const n = Noise.simplex(
+                const n = noise(
                   x / ${smoothness},
                   y / ${smoothness},
                   ${seed}
